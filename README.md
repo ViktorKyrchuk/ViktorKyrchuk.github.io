@@ -1,1 +1,0 @@
-# ViktorKyrchuk.github.io
