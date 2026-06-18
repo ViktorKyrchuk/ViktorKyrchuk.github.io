@@ -158,6 +158,9 @@ li strong {
 body {
     margin: 0;
     padding: 0;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 html {
