@@ -70,10 +70,10 @@ header {
     z-index: 1000;
 }
 
-main {
-    /* min-height: calc(100vh - 4rem - 4rem); */
-    /* gap: 4rem; */
-}
+/* main {
+    min-height: calc(100vh - 4rem - 4rem);
+    gap: 4rem;
+} */
 
 footer {
     display: flex;
@@ -92,7 +92,7 @@ nav {
     align-items: center;
     background-color: var(--bg-primary);
     padding: 1rem 2rem;
-    border-bottom: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-muted);
 }
 
 
