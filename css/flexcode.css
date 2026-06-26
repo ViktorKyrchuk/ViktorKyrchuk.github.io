@@ -177,7 +177,7 @@ section .content{
     gap: 1.5rem;
 }
 
-section#hero {
+section#master-layout {
     background: linear-gradient(90deg, var(--bg-dark) 0%, var(--bg-dark-end) 100%);
 }
 
