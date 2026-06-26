@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Bootstrap Bundle JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -21,10 +22,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-
         }
     </style>
-
 </head>
 
 <body class="min-vh-100 d-flex flex-column">
@@ -49,6 +48,7 @@
                                 <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
                                 <a class="nav-link" href="#">Courses</a>
                                 <a class="nav-link" href="#">Schedules</a>
+
                                 <div class="dropdown text-start">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">Account</a>
@@ -61,14 +61,12 @@
                                         <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
-
                     </nav>
                 </div>
-
             </div>
-
         </div>
     </header>
 
@@ -94,12 +92,13 @@
 
         <!-- Section With Cards -->
         <section class="container mb-0 mb-lg-4">
-            <div class="row   justify-content-center">
+            <div class="row justify-content-center">
                 <div class="col-12 col-xl-9 p-0">
-                    <div class="row   small">
+                    <div class="row small">
 
                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                             <article class="card h-100 shadow-sm">
+
                                 <div class="card-header bg-primary text-white">
                                     Frontend Engineering
                                 </div>
@@ -148,7 +147,6 @@
                                                     <h3 class="h6 mb-1">Grid System Layout Lab</h3>
                                                     <small class="text-secondary">Due in 2 days</small>
                                                 </div>
-
                                                 <span class="badge bg-danger rounded-pill">High</span>
                                             </div>
                                         </div>
@@ -159,7 +157,6 @@
                                                     <h3 class="h6 mb-1">Form Validation Hook</h3>
                                                     <small class="text-secondary">Due in 5 days</small>
                                                 </div>
-
                                                 <span class="badge bg-secondary rounded-pill">Medium</span>
                                             </div>
                                         </div>
@@ -170,7 +167,6 @@
                                                     <h3 class="h6 mb-1">Accessible Navbar Audit</h3>
                                                     <small class="text-secondary">Due next week</small>
                                                 </div>
-
                                                 <span class="badge bg-info text-dark rounded-pill">Low</span>
                                             </div>
                                         </div>
@@ -196,30 +192,36 @@
                                         <div class="col-6">
                                             <div class="border rounded bg-light p-2 h-100">
                                                 <div class="fs-4 fw-bold text-primary">4.8</div>
-                                                <small class="text-uppercase text-secondary text-nowrap">Current
-                                                    GPA</small>
+                                                <small class="text-uppercase text-secondary text-nowrap">
+                                                    Current GPA
+                                                </small>
                                             </div>
                                         </div>
 
                                         <div class="col-6">
                                             <div class="border rounded bg-light p-2 h-100">
                                                 <div class="fs-4 fw-bold text-success">12</div>
-                                                <small class="text-uppercase text-secondary text-nowrap">Passed</small>
+                                                <small class="text-uppercase text-secondary text-nowrap">
+                                                    Passed
+                                                </small>
                                             </div>
                                         </div>
 
                                         <div class="col-6">
                                             <div class="border rounded bg-light p-2 h-100">
                                                 <div class="fs-4 fw-bold text-warning">2</div>
-                                                <small class="text-uppercase text-secondary text-nowrap">Active</small>
+                                                <small class="text-uppercase text-secondary text-nowrap">
+                                                    Active
+                                                </small>
                                             </div>
                                         </div>
 
                                         <div class="col-6">
                                             <div class="border rounded bg-light p-2 h-100">
                                                 <div class="fs-4 fw-bold text-info">98%</div>
-                                                <small
-                                                    class="text-uppercase text-secondary text-nowrap">Attendance</small>
+                                                <small class="text-uppercase text-secondary text-nowrap">
+                                                    Attendance
+                                                </small>
                                             </div>
                                         </div>
 
@@ -257,23 +259,31 @@
 
                             <div class="row g-2">
                                 <div class="col-12 col-md-6 mb-md-0">
-                                    <label for="firstName" class="form-label mb-1">Full Name</label>
+                                    <label for="firstName" class="form-label mb-1">
+                                        Full Name
+                                    </label>
                                     <input type="text" class="form-control form-control-sm" id="firstName"
                                         placeholder="John Doe" required>
                                 </div>
                                 <div class="col-12 col-md-6 mb-md-0">
-                                    <label for="email" class="form-label mb-1">Email Address</label>
+                                    <label for="email" class="form-label mb-1">
+                                        Email Address
+                                    </label>
                                     <input type="email" class="form-control form-control-sm" id="email"
                                         placeholder="johndoe@university.edu" required autocomplete="email">
                                 </div>
 
                                 <div class="col-12 col-md-6 mb-md-0">
-                                    <label for="securityToken" class="form-label mb-1">Security Token (Password)</label>
+                                    <label for="securityToken" class="form-label mb-1">
+                                        Security Token (Password)
+                                    </label>
                                     <input type="password" class="form-control form-control-sm" id="securityToken"
                                         placeholder="Enter your password" required autocomplete="current-password">
                                 </div>
                                 <div class="col-12 col-md-6 mb-md-0">
-                                    <label for="enrollmentTerm" class="form-label mb-1">Enrollment Term Date</label>
+                                    <label for="enrollmentTerm" class="form-label mb-1">
+                                        Enrollment Term Date
+                                    </label>
                                     <input type="date" class="form-control form-control-sm" id="enrollmentTerm"
                                         required>
                                 </div>
@@ -289,8 +299,9 @@
 
                             <div class="row g-2">
                                 <div class="col-12 col-md-6 mb-md-0">
-                                    <label for="primaryDevelopmentTrack" class="form-label mb-1">Primary Development
-                                        Track</label>
+                                    <label for="primaryDevelopmentTrack" class="form-label mb-1">
+                                        Primary Development Track
+                                    </label>
                                     <select class="form-select form-select-sm" id="primaryDevelopmentTrack"
                                         aria-label="Primary Development Track" required>
                                         <option value="" selected disabled>Choose a pathway...</option>
@@ -301,37 +312,45 @@
                                 </div>
 
                                 <div class="col-12 col-md-6 mb-md-0">
-                                    <label for="priorUIFrameworkExperienceYes" class="form-label mb-1">Prior UI
-                                        Framework
-                                        Experience</label>
+                                    <label for="priorUIFrameworkExperienceYes" class="form-label mb-1">
+                                        Prior UI Framework Experience
+                                    </label>
                                     <div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio"
                                                 name="priorUIFrameworkExperience" id="priorUIFrameworkExperienceYes"
                                                 value="none" checked required>
                                             <label class="form-check-label"
-                                                for="priorUIFrameworkExperienceYes">None</label>
+                                                for="priorUIFrameworkExperienceYes">
+                                                None
+                                            </label>
                                         </div>
+
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio"
                                                 name="priorUIFrameworkExperience" id="priorUIFrameworkExperienceNo"
                                                 value="some" required>
-                                            <label class="form-check-label" for="priorUIFrameworkExperienceNo">Some (1-2
-                                                Projects)</label>
+                                            <label class="form-check-label" for="priorUIFrameworkExperienceNo">
+                                                Some (1-2 Projects)
+                                            </label>
                                         </div>
+
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio"
                                                 name="priorUIFrameworkExperience"
                                                 id="priorUIFrameworkExperienceAdvanced" value="advanced" required>
                                             <label class="form-check-label"
-                                                for="priorUIFrameworkExperienceAdvanced">Advanced </label>
+                                                for="priorUIFrameworkExperienceAdvanced">
+                                                Advanced
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-12 mb-3 mb-md-0">
-                                    <label for="statementOfAcademicGoals" class="form-label mb-1">Statement of Academic
-                                        Goals</label>
+                                    <label for="statementOfAcademicGoals" class="form-label mb-1">
+                                        Statement of Academic Goals
+                                    </label>
 
                                     <textarea class="form-control form-control-sm" id="statementOfAcademicGoals"
                                         placeholder="Briefly specify what you intend to build with Bootstrap layout engines..."
@@ -342,8 +361,9 @@
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch"
                                             id="switchCheckChecked" checked required>
-                                        <label class="form-check-label" for="switchCheckChecked">Subscribe to community
-                                            lab updates and framework patch notes</label>
+                                        <label class="form-check-label" for="switchCheckChecked">
+                                            Subscribe to community lab updates and framework patch notes
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -351,12 +371,13 @@
 
                         <div class="d-flex flex-wrap gap-2 justify-content-sm-end justify-content-center">
                             <button type="reset"
-                                class="btn btn-sm btn-outline-danger flex-grow-1 flex-sm-grow-0 px-4">Reset
-                                Form</button>
+                                class="btn btn-sm btn-outline-danger flex-grow-1 flex-sm-grow-0 px-4">
+                                Reset Form
+                            </button>
 
-                            <button type="submit" class="btn btn-sm btn-success flex-grow-1 flex-sm-grow-0 px-4">Submit
-                                Registration</button>
-
+                            <button type="submit" class="btn btn-sm btn-success flex-grow-1 flex-sm-grow-0 px-4">
+                                Submit Registration
+                            </button>
                         </div>
                     </form>
 
@@ -366,10 +387,14 @@
         </section>
     </main>
 
-    <footer class="text-center py-4 bg-dark text-white">
-        <p class="mb-0 text-secondary">
-            &copy; 2026 EduPortal. Built as a pedagogical example for responsive CSS grids.
-        </p>
+    <footer class="text-center py-3 bg-dark text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-xl-9 text-secondary">
+                    &copy; 2026 EduPortal. Built as a pedagogical example for responsive CSS grids.
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 
