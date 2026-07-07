@@ -96,4 +96,4 @@ let sortedArray3 = insertionSort(array3);
 document.getElementById("sortedArray_insertion").textContent += " [" + sortedArray3 + "]";
 
 console.log("Original array: " + array3);
-console.log("Sorted array: " + insertionSort(array3));
+console.log("Sorted array: " + sortedArray3);

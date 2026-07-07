@@ -15,7 +15,9 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <script src="js/arraySort.js" defer></script>
+    <script src="js/sort/bubbleSort.js" defer></script>
+    <script src="js/sort/selectionSort.js" defer></script>
+    <script src="js/sort/insertionSort.js" defer></script>
 </head>
 
 <body>
@@ -45,7 +47,7 @@ function bubbleSort(arr) {
                 swapped = true;
             }
         }
-        if (!swapped) { // умова виходу, якщо за прохід не було обміну елементів
+        if (!swapped) {
             break;
         }
     }
@@ -54,6 +56,7 @@ function bubbleSort(arr) {
                                 </pre>
                             </code>
                             <div class="h5 mt-auto" id="sortedArray_bubble">Sorted array:</div>
+                            <a href="js/sort/bubbleSort.js" class="btn btn-primary mt-2" target="_blank">file here</a>
                         </div>
                     </div>
                 </div>
@@ -89,6 +92,7 @@ function selectionSort(arr) {
                                 </pre>
                             </code>
                             <div class="h5 mt-auto" id="sortedArray_selection">Sorted array:</div>
+                            <a href="js/sort/selectionSort.js" class="btn btn-primary mt-2" target="_blank">file here</a>
                         </div>
                     </div>
                 </div>
@@ -121,6 +125,7 @@ function insertionSort(arr) {
                                 </pre>
                             </code>
                             <div class="h5 mt-auto" id="sortedArray_insertion">Sorted array:</div>
+                            <a href="js/sort/insertionSort.js" class="btn btn-primary mt-2" target="_blank">file here</a>
                         </div>
                     </div>
                 </div>
