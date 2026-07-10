@@ -86,10 +86,6 @@ const toDoListItems = document.getElementById("toDoListItems");
 const toDoInput = document.getElementById("toDoInput");
 const addToDoBtn = document.getElementById("addToDoBtn");
 
-window.onload = () => {
-    renderToDoList();
-};
-
 addToDoBtn.addEventListener("click", () => {
     const title = toDoInput.value.trim();
     if (title) {
