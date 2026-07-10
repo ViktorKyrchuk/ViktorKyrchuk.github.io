@@ -4,7 +4,7 @@ class ToDoItem {
     #startDate;
     #endDate;
 
-    constructor(title, startDate = new Date(), endDate = null, status = "todo") {
+    constructor(title, startDate = new Date(), endDate = new Date(null), status = "todo") {
         this.#title = title;
         this.#status = status;
         this.#startDate = startDate;
