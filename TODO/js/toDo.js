@@ -28,11 +28,11 @@ class ToDoItem {
     }
 
     getStartDate() {
-        return (this.#startDate);
+        return this.#startDate;
     }
 
     getEndDate() {
-        return this.#endDate ? (this.#endDate) : null;
+        return this.#endDate ? this.#endDate : null;
     }
 
     showItem() {
@@ -97,6 +97,15 @@ addToDoBtn.addEventListener("click", () => {
     }
 });
 
+toDoInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        const title = toDoInput.value.trim();
+        if (title) {
+            addToDoItem(title);
+        }
+    }
+});
+
 function addToDoItem(title) {
     const newItem = new ToDoItem(title);
     toDoList.push(newItem);
@@ -152,7 +161,12 @@ function loadFromLocalStorage() {
     if (storedList) {
         const parsedList = JSON.parse(storedList);
         for (const itemData of parsedList) {
-            const item = new ToDoItem(itemData.title, new Date(itemData.startDate), new Date(itemData.endDate), itemData.status);
+            const item = new ToDoItem(
+                itemData.title,
+                new Date(itemData.startDate),
+                new Date(itemData.endDate),
+                itemData.status,
+            );
             toDoList.push(item);
         }
     }
