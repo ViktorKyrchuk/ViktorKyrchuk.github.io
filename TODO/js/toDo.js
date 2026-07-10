@@ -4,7 +4,7 @@ class ToDoItem {
     #startDate;
     #endDate;
 
-    constructor(title, startDate = new Date(), endDate = null, status = 'todo') {
+    constructor(title, startDate = new Date(), endDate = null, status = "todo") {
         this.#title = title;
         this.#status = status;
         this.#startDate = startDate;
@@ -19,32 +19,52 @@ class ToDoItem {
         return this.#status;
     }
 
+    addZero(num) {
+        return num < 10 ? "0" + num : num;
+    }
+
     getBeautyDate(date) {
-        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+        return `${this.addZero(date.getDate())}/${this.addZero(date.getMonth() + 1)}/${date.getFullYear()} ${this.addZero(date.getHours())}:${this.addZero(date.getMinutes())}`;
     }
 
     getStartDate() {
-        return this.getBeautyDate(this.#startDate);
+        return (this.#startDate);
     }
 
     getEndDate() {
-        return this.#endDate ? this.getBeautyDate(this.#endDate) : null;
+        return this.#endDate ? (this.#endDate) : null;
     }
 
     showItem() {
-        const itemInfo = document.createElement('div');
+        const itemInfo = document.createElement("div");
         const status = this.getStatus();
-        const lineThrougth = status === 'done' ? 'text-decoration-line-through' : '';
-        const displayClass = status === 'todo' ? 'd-none' : '';
+
+        let lineThrougth = "";
+        let displayClass = "";
+
+        switch (status) {
+            case "todo":
+                lineThrougth = "";
+                displayClass = "d-none";
+                break;
+            case "done":
+                lineThrougth = "text-decoration-line-through";
+                displayClass = "";
+                break;
+            default:
+                lineThrougth = "";
+                displayClass = "";
+                break;
+        }
 
         itemInfo.innerHTML = `
             <div class="d-flex justify-content-between align-items-center ">
                 <div class="d-flex flex-column">
                     <div class="fw-semibold ${lineThrougth}">${this.getTitle()}</div>
-                    <small class="text-secondary">Created: ${this.getStartDate()}</small>
-                    <small class="text-secondary ${displayClass}">Done: ${this.getEndDate()}</small>
+                    <small class="text-secondary">Created: ${this.getBeautyDate(this.getStartDate())}</small>
+                    <small class="text-secondary ${displayClass}">Done: ${this.getEndDate() ? this.getBeautyDate(this.getEndDate()) : ""}</small>
                 </div>
-                <span class="badge text-bg-${status === 'done' ? 'success' : 'warning'} rounded-pill">${status}</span>
+                <span class="badge text-bg-${status === "done" ? "success" : "warning"} rounded-pill">${status}</span>
             </div>
         `;
 
@@ -52,22 +72,25 @@ class ToDoItem {
     }
 
     markAsDone() {
-        this.#status = 'done';
+        this.#status = "done";
         this.#endDate = new Date();
     }
 }
-
 
 // ----------------------------
 // ----------------------------
 // ----------------------------
 
 const toDoList = [];
-const toDoListItems = document.getElementById('toDoListItems');
-const toDoInput = document.getElementById('toDoInput');
-const addToDoBtn = document.getElementById('addToDoBtn');
+const toDoListItems = document.getElementById("toDoListItems");
+const toDoInput = document.getElementById("toDoInput");
+const addToDoBtn = document.getElementById("addToDoBtn");
 
-addToDoBtn.addEventListener('click', () => {
+window.onload = () => {
+    renderToDoList();
+};
+
+addToDoBtn.addEventListener("click", () => {
     const title = toDoInput.value.trim();
     if (title) {
         addToDoItem(title);
@@ -78,29 +101,64 @@ function addToDoItem(title) {
     const newItem = new ToDoItem(title);
     toDoList.push(newItem);
     renderToDoList();
-    toDoInput.value = '';
+    saveToLocalStorage();
+    toDoInput.value = "";
 }
 
 function renderToDoList() {
-    toDoListItems.innerHTML = '';
+    toDoListItems.innerHTML = "";
     for (const item of toDoList) {
-        const li = document.createElement('li');
-        li.className = 'list-group-item';
+        const li = document.createElement("li");
+        li.className = `list-group-item user-select-none ${item.getStatus() === "done" ? "list-group-item-success" : ""}`;
         li.innerHTML = item.showItem();
         toDoListItems.appendChild(li);
-        // console.log(item);
     }
 }
 
-toDoListItems.addEventListener('click', (event) => {
+toDoListItems.addEventListener("click", (event) => {
     const clickedItem = event.target;
 
-    const itemIndex = Array.from(toDoListItems.children).indexOf(clickedItem.closest('li'));
+    const itemIndex = Array.from(toDoListItems.children).indexOf(
+        clickedItem.closest("li"),
+    );
     if (itemIndex !== -1) {
         const item = toDoList[itemIndex];
-        if (item.getStatus() == 'todo') {
+        if (item.getStatus() == "todo") {
             item.markAsDone();
             renderToDoList();
+            saveToLocalStorage();
         }
     }
 });
+
+// use localStorage to save the toDoList array
+
+function saveToLocalStorage() {
+    localStorage.setItem(
+        "toDoList",
+        JSON.stringify(
+            toDoList.map((item) => ({
+                title: item.getTitle(),
+                status: item.getStatus(),
+                startDate: item.getStartDate(),
+                endDate: item.getEndDate(),
+            })),
+        ),
+    );
+}
+
+function loadFromLocalStorage() {
+    const storedList = localStorage.getItem("toDoList");
+    if (storedList) {
+        const parsedList = JSON.parse(storedList);
+        for (const itemData of parsedList) {
+            const item = new ToDoItem(itemData.title, new Date(itemData.startDate), new Date(itemData.endDate), itemData.status);
+            toDoList.push(item);
+        }
+    }
+}
+
+window.onload = () => {
+    loadFromLocalStorage();
+    renderToDoList();
+};
