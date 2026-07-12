@@ -112,6 +112,13 @@ function addToDoItem(title) {
 
 function renderToDoList() {
     toDoListItems.innerHTML = "";
+    if(toDoList.length === 0) {
+        const li = document.createElement("li");
+        li.className = "list-group-item text-center text-secondary";
+        li.innerHTML = 'There are no tasks in your list.<br/> Add a new task to get started!';
+        toDoListItems.appendChild(li);
+        return;
+    }
     for (const item of toDoList) {
         const li = document.createElement("li");
         li.className = `list-group-item user-select-none ${item.getStatus() === "done" ? "list-group-item-success" : ""}`;
