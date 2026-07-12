@@ -12,10 +12,24 @@
             max-height: calc(100dvh - 2rem);
         }
 
-        .todo-card .card-body,
-        .todo-list-wrapper,
-        #toDoListItems {
+        .todo-card .card-body {
+            max-height: calc(100vh - 2rem);
+            max-height: calc(100dvh - 2rem);
             min-height: 0;
+        }
+
+        .todo-list-wrapper {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        #toDoListItems {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
@@ -44,14 +58,15 @@
                             </button>
                         </div>
 
-                        <fieldset class="todo-list-wrapper border rounded-3 p-3 p-md-4 d-flex flex-column overflow-hidden">
-                            <legend class="float-none w-auto px-2 h6 text-secondary flex-shrink-0">
+                        <div class="todo-list-wrapper border rounded-3 p-3 p-md-4 d-flex flex-column"
+                            role="group" aria-labelledby="toDoListTitle">
+                            <h2 class="h6 text-secondary flex-shrink-0" id="toDoListTitle">
                                 ToDo List Items
-                            </legend>
+                            </h2>
 
-                            <ul class="list-group overflow-auto" id="toDoListItems" style="scrollbar-width: thin;">
+                            <ul class="list-group" id="toDoListItems" style="scrollbar-width: thin;">
                             </ul>
-                        </fieldset>
+                        </div>
                     </div>
                 </section>
             </div>
