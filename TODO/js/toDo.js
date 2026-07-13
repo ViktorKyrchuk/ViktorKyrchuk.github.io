@@ -113,6 +113,8 @@ function addToDoItem(title) {
 
 function renderToDoList() {
     toDoListItems.innerHTML = "";
+    tasksCount.textContent = toDoList.length;
+
     if(toDoList.length === 0) {
         const li = document.createElement("li");
         li.className = "list-group-item text-center text-secondary";
@@ -126,7 +128,6 @@ function renderToDoList() {
         li.innerHTML = item.showItem();
         toDoListItems.appendChild(li);
     }
-    tasksCount.textContent = toDoList.length;
 }
 
 toDoListItems.addEventListener("click", (event) => {
