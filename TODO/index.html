@@ -6,14 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ToDo List Design</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .todo-card {
+            max-height: calc(100vh - 2rem);
+            max-height: calc(100dvh - 2rem);
+        }
+
+        .todo-card .card-body {
+            max-height: calc(100vh - 2rem);
+            max-height: calc(100dvh - 2rem);
+            min-height: 0;
+        }
+
+        .todo-list-wrapper {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        #toDoListItems {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
 </head>
 
-<body class="bg-light overflow-hidden">
-    <main class="container vh-100 d-flex align-items-center justify-content-center py-5 overflow-hidden">
-        <div class="row w-100 h-100 justify-content-center align-items-center overflow-hidden">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 h-100 d-flex align-items-center overflow-hidden">
-                <section class="card border-0 shadow-sm w-100 h-100 mh-100 d-flex flex-column overflow-hidden">
-                    <div class="card-body h-100 p-4 p-md-5 d-flex flex-column gap-3 overflow-hidden">
+<body class="bg-light">
+    <main class="container min-vh-100 d-flex align-items-center justify-content-center py-3">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                <section class="todo-card card border-0 shadow-sm w-100 d-flex flex-column overflow-hidden">
+                    <div class="card-body p-4 p-md-5 d-flex flex-column gap-3 overflow-hidden">
                         <div class="text-center mb-3 mb-md-4 flex-shrink-0">
                             <div class="material-symbols-outlined text-primary fs-1 mb-2">ToDo List</div>
                         </div>
@@ -34,16 +60,9 @@
                                 </div>
                             </legend>
 
-                            <ul class="list-group flex-grow-1 overflow-auto" id="toDoListItems" style="scrollbar-width: thin;">
-                                <!-- <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start gap-3 py-3" role="button">
-                                <div>
-                                    <div class="fw-semibold">Купити хліб</div>
-                                    <small class="text-secondary">Початок: 2026-01-01 22:22</small>
-                                </div>
-                                <span class="badge text-bg-warning rounded-pill">todo</span>
-                                </li> -->
+                            <ul class="list-group" id="toDoListItems" style="scrollbar-width: thin;">
                             </ul>
-                        </fieldset>
+                        </div>
                     </div>
                 </section>
             </div>
