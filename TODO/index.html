@@ -15,13 +15,7 @@
                 <section class="card border-0 shadow-sm w-100 h-100 mh-100 d-flex flex-column overflow-hidden">
                     <div class="card-body h-100 p-4 p-md-5 d-flex flex-column gap-3 overflow-hidden">
                         <div class="text-center mb-3 mb-md-4 flex-shrink-0">
-                            <h1 class="h3 fw-bold mb-2">ToDo List</h1>
-                            <p class="text-secondary mb-0">
-                                HTML5, Bootstrap 5 and JavaScript
-                                <small class="d-block text-muted">
-                                    Use localStorage to save tasks and their statuses
-                                </small>
-                            </p>
+                            <div class="material-symbols-outlined text-primary fs-1 mb-2">ToDo List</div>
                         </div>
 
                         <div class="input-group input-group-lg flex-shrink-0">
@@ -34,7 +28,10 @@
 
                         <fieldset class="border rounded-3 p-3 p-md-4 d-flex flex-column flex-grow-1 overflow-hidden">
                             <legend class="float-none w-auto px-2 h6 text-secondary flex-shrink-0">
-                                ToDo List Items
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <div class="material-symbols-outlined">Tasks</div>
+                                    <div class="badge text-bg-primary rounded-pill" id="tasksCount">0</div>
+                                </div>
                             </legend>
 
                             <ul class="list-group flex-grow-1 overflow-auto" id="toDoListItems" style="scrollbar-width: thin;">

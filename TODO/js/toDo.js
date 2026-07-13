@@ -85,6 +85,7 @@ const toDoList = [];
 const toDoListItems = document.getElementById("toDoListItems");
 const toDoInput = document.getElementById("toDoInput");
 const addToDoBtn = document.getElementById("addToDoBtn");
+const tasksCount = document.getElementById("tasksCount");
 
 addToDoBtn.addEventListener("click", () => {
     const title = toDoInput.value.trim();
@@ -118,6 +119,7 @@ function renderToDoList() {
         li.innerHTML = item.showItem();
         toDoListItems.appendChild(li);
     }
+    tasksCount.textContent = toDoList.length;
 }
 
 toDoListItems.addEventListener("click", (event) => {
