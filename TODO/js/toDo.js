@@ -48,7 +48,7 @@ class ToDoItem {
                 displayClass = "d-none";
                 break;
             case "done":
-                lineThrougth = "text-decoration-line-through";
+                lineThrougth = "text-decoration-line-through text-muted";
                 displayClass = "";
                 break;
             default:
