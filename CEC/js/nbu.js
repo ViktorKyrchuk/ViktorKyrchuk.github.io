@@ -11,8 +11,11 @@ let selectedDateTo = formatDate(new Date(dateToInput.value));
 
 let ratesData = []; // Array to store fetched rates data
 const minValElement = document.getElementById('minVal');
-const avgValElement = document.getElementById('avgVal');
+// const avgValElement = document.getElementById('avgVal');
 const maxValElement = document.getElementById('maxVal');
+const latestValElement = document.getElementById('latestVal');
+const deltaSignElement = document.getElementById('deltaSign');
+
 let exchangeRateChart = null;
 
 // https://bank.gov.ua/NBU_Exchange/exchange_site?start=20220115&end=20220131&valcode=usd&sort=exchangedate&json
@@ -197,8 +200,9 @@ function updateRateStatistics() {
 
     if (rates.length === 0) {
         minValElement.textContent = 'N/A';
-        avgValElement.textContent = 'N/A';
+        // avgValElement.textContent = 'N/A';
         maxValElement.textContent = 'N/A';
+        latestValElement.textContent = 'N/A';
         return;
     }
 
@@ -207,8 +211,29 @@ function updateRateStatistics() {
     const avgRate = rates.reduce((sum, rate) => sum + rate, 0) / rates.length;
 
     minValElement.textContent = `${minRate.toFixed(2)} UAH`;
-    avgValElement.textContent = `${avgRate.toFixed(2)} UAH`;
+    // avgValElement.textContent = `${avgRate.toFixed(2)} UAH`;
     maxValElement.textContent = `${maxRate.toFixed(2)} UAH`;
+    latestValElement.textContent = `${rates[rates.length - 1].toFixed(2)} UAH`;
+
+    // Calculate the delta sign for the latest rate compared to the previous rate
+    if (rates.length > 1) {
+        const previousRate = rates[rates.length - 2];
+        const latestRate = rates[rates.length - 1];
+        const delta = latestRate - previousRate;
+
+        if (delta > 0) {
+            deltaSignElement.textContent = ` ${delta.toFixed(2)} ▲`;
+            deltaSignElement.className = 'text-success';
+        } else if (delta < 0) {
+            deltaSignElement.textContent = ` ${delta.toFixed(2)} ▼`;
+            deltaSignElement.className = 'text-danger';
+        } else {
+            deltaSignElement.textContent = ` ${delta.toFixed(2)}`;
+            deltaSignElement.className = 'text-secondary';
+        }
+    } else {
+        deltaSignElement.textContent = '';
+    }
 }
 
 // Call the function to fetch currency options when form is submitted
@@ -216,6 +241,11 @@ exchangeForm.addEventListener('submit', function (event) {
     event.preventDefault();
     if (!currencySelect.value) {
         alert('Будь ласка, оберіть валюту.');
+        return;
+    }
+    if(new Date(dateFromInput.value) > new Date(dateToInput.value)) {
+        alert('Дата початку не може бути пізнішою за дату закінчення.');
+        dateFromInput.focus();
         return;
     }
     fetchRates(selectedDateFrom, selectedDateTo, currencySelect.value);
